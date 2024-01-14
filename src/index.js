@@ -1,5 +1,7 @@
 const express = require('express');
 
+const usersRoutes = require('./routes/UsersRoute.js')
+
 const app = express();
 
 // pattern routing di express
@@ -13,13 +15,15 @@ const app = express();
 // });
 // res respon
 // req request
+
+app.use('/users', usersRoutes)
 app.get("/", (req, res) => {
     res.send("<h1>Hello get method</h1>")
 });
 
 app.post("/", (req, res) => {
     res.json({
-        "Nama":"Dwi",
+        "Nama": "Dwi",
         "Alamat": "Bogor"
     })
 });
